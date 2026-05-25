@@ -1,0 +1,56 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "postFocusDelayMilliseconds": 500,
+  "steps": [
+    {
+      "type": "focus",
+      "description": "Bring the game to the foreground."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 500,
+      "description": "Let the Options menu settle."
+    },
+    {
+      "type": "sendKeys",
+      "keys": "{DOWN}",
+      "description": "Move from Gameplay to Display."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 250,
+      "description": "Brief pause between menu moves."
+    },
+    {
+      "type": "sendKeys",
+      "keys": "{DOWN}",
+      "description": "Move from Display to Audio."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 250,
+      "description": "Brief pause between menu moves."
+    },
+    {
+      "type": "sendKeys",
+      "keys": "{DOWN}",
+      "description": "Move from Audio to Controls."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 500,
+      "description": "Let the selection settle on Controls."
+    },
+    {
+      "type": "sendKeys",
+      "keys": "{ENTER}",
+      "description": "Open Controls."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 1500,
+      "description": "Give the Controls screen time to appear."
+    }
+  ]
+}

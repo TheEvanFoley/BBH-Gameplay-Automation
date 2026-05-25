@@ -1,0 +1,14 @@
+{
+  "obsCmdPath": "E:\\obs-cmd-x64-windows\\obs-cmd.exe",
+  "websocketUrl": "obsws://localhost:4455/REPLACE_ME",
+  "sceneName": "BigBuckHunter",
+  "sourceName": "BigBuckHunterGame",
+  "obsRecordDirectory": "E:\\BigBuckHunterRecordings",
+  "captureRoot": "E:\\BigBuckHunterRecordings",
+  "preferredVideoName": "video",
+  "restReticleTarget": {
+    "xPercent": 0.97,
+    "yPercent": 0.92
+  },
+  "restReticleSettleMilliseconds": 250
+}

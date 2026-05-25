@@ -1,0 +1,26 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "postFocusDelayMilliseconds": 500,
+  "steps": [
+    {
+      "type": "focus",
+      "description": "Bring the game to the foreground."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 750,
+      "description": "Let the title screen settle."
+    },
+    {
+      "type": "sendKeys",
+      "keys": "{ENTER}",
+      "description": "Advance past the Press Any Button screen."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 1500,
+      "description": "Give the next menu time to appear."
+    }
+  ]
+}

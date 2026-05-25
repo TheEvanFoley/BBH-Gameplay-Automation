@@ -1,0 +1,26 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "postFocusDelayMilliseconds": 500,
+  "steps": [
+    {
+      "type": "focus",
+      "description": "Bring the game to the foreground."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 500,
+      "description": "Let the main menu settle."
+    },
+    {
+      "type": "sendKeys",
+      "keys": "{ENTER}",
+      "description": "Activate the currently selected Start Game option."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 2000,
+      "description": "Give the next screen time to appear."
+    }
+  ]
+}

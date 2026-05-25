@@ -1,0 +1,24 @@
+{
+  "screen": "big-buck-hunter-vs-bonus-only",
+  "notes": [
+    "These are screenshot-estimated relative coordinates, not exact client-center measurements.",
+    "Use them as starting calibration targets for hover/select automation."
+  ],
+  "targets": {
+    "backButton": {
+      "xPercent": 0.18,
+      "yPercent": 0.22,
+      "description": "Center of the red Back button in the upper-left area."
+    },
+    "bigBuckHunterTile": {
+      "xPercent": 0.36,
+      "yPercent": 0.53,
+      "description": "Approximate center of the left Big Buck Hunter tile."
+    },
+    "bonusOnlyTile": {
+      "xPercent": 0.65,
+      "yPercent": 0.53,
+      "description": "Approximate center of the right Bonus Only tile."
+    }
+  }
+}

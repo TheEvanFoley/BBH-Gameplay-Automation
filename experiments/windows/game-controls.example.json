@@ -1,0 +1,22 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "postFocusDelayMilliseconds": 500,
+  "steps": [
+    {
+      "type": "focus",
+      "description": "Bring the game to the foreground."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 1000,
+      "description": "Give the menu a moment to settle."
+    },
+    {
+      "type": "click",
+      "xPercent": 0.5,
+      "yPercent": 0.82,
+      "description": "Example click near the lower center of the menu."
+    }
+  ]
+}

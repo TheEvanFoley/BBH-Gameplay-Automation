@@ -1,0 +1,272 @@
+{
+  "siteSelectionLocationRegion": {
+    "xPercent": 0.78,
+    "yPercent": 0.015,
+    "widthPercent": 0.22,
+    "heightPercent": 0.14
+  },
+  "trekSelectionPromptRegion": {
+    "xPercent": 0.08,
+    "yPercent": 0.84,
+    "widthPercent": 0.34,
+    "heightPercent": 0.12
+  },
+  "bonusReportHeaderRegion": {
+    "xPercent": 0.37,
+    "yPercent": 0.02,
+    "widthPercent": 0.30,
+    "heightPercent": 0.12
+  },
+  "postTrekMenuHeaderRegion": {
+    "xPercent": 0.30,
+    "yPercent": 0.01,
+    "widthPercent": 0.38,
+    "heightPercent": 0.14
+  },
+  "siteSelectionLogoRegion": {
+    "xPercent": 0.375,
+    "yPercent": 0.0,
+    "widthPercent": 0.25,
+    "heightPercent": 0.16
+  },
+  "trekSelectionLocationsRegion": {
+    "xPercent": 0.1,
+    "yPercent": 0.7,
+    "widthPercent": 0.8,
+    "heightPercent": 0.24
+  },
+  "trekSelectionLocationSlots": [
+    {
+      "name": "slot1",
+      "xPercent": 0.12,
+      "yPercent": 0.7,
+      "widthPercent": 0.18,
+      "heightPercent": 0.06
+    },
+    {
+      "name": "slot2",
+      "xPercent": 0.34,
+      "yPercent": 0.7,
+      "widthPercent": 0.18,
+      "heightPercent": 0.06
+    },
+    {
+      "name": "slot3",
+      "xPercent": 0.53,
+      "yPercent": 0.7,
+      "widthPercent": 0.18,
+      "heightPercent": 0.06
+    }
+  ],
+  "adventureNames": [
+    "Whitetail Deer",
+    "Bighorn Sheep",
+    "Caribou",
+    "Elk",
+    "Gemsbock",
+    "Irish Elk",
+    "Kudu",
+    "Moose",
+    "Wildebeest",
+    "Buckzilla",
+    "Zombie Deer"
+  ],
+  "locationMappings": [
+    {
+      "pattern": "GRAND DETOUR, IL",
+      "adventure": "Whitetail Deer",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "ONAMIA, MN",
+      "adventure": "Whitetail Deer",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "HARTLEY, IA",
+      "adventure": "Whitetail Deer",
+      "trek": "Trek 3"
+    },
+    {
+      "pattern": "BRAGG CREEK, AB",
+      "adventure": "Bighorn Sheep",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "RIGGINS, ID",
+      "adventure": "Bighorn Sheep",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "SALOME, AZ",
+      "adventure": "Bighorn Sheep",
+      "trek": "Trek 3"
+    },
+    {
+      "pattern": "EAGLE VILLAGE, AK",
+      "adventure": "Caribou",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "MUSKWA, BC",
+      "adventure": "Caribou",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "NORTHERN PINE, SK",
+      "adventure": "Caribou",
+      "trek": "Trek 3"
+    },
+    {
+      "pattern": "MONTROSE, CO",
+      "adventure": "Elk",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "VANCOUVER ISLAND, BC",
+      "adventure": "Elk",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "BROWNING, MT",
+      "adventure": "Elk",
+      "trek": "Trek 3"
+    },
+    {
+      "pattern": "OKAHANDJA, NA",
+      "adventure": "Gemsbock",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "NGAMILAND, BW",
+      "adventure": "Gemsbock",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "TANKWA KAROO, SA",
+      "adventure": "Gemsbock",
+      "trek": "Trek 3"
+    },
+    {
+      "pattern": "AGHNAMONA BOG",
+      "adventure": "Irish Elk",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "KAMA RIVER BASIN",
+      "adventure": "Irish Elk",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "RIF MOUNTAINS",
+      "adventure": "Irish Elk",
+      "trek": "Trek 3"
+    },
+    {
+      "pattern": "ZAMBEZI, ZW",
+      "adventure": "Kudu",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "ABBABIS, NA",
+      "adventure": "Kudu",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "CHACONDA, MZ",
+      "adventure": "Kudu",
+      "trek": "Trek 3"
+    },
+    {
+      "pattern": "STONY RIVER, AK",
+      "adventure": "Moose",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "FLAT CREEK, YT",
+      "adventure": "Moose",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "INUVIK, NT",
+      "adventure": "Moose",
+      "trek": "Trek 3"
+    },
+    {
+      "pattern": "MAKOKO, ZA",
+      "adventure": "Wildebeest",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "KOBOJANGO, BW",
+      "adventure": "Wildebeest",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "LUMBALA, AO",
+      "adventure": "Wildebeest",
+      "trek": "Trek 3"
+    },
+    {
+      "pattern": "SEASIDE",
+      "adventure": "Buckzilla",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "DEEP FOREST",
+      "adventure": "Buckzilla",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "MOUNT SILVANI",
+      "adventure": "Buckzilla",
+      "trek": "Trek 3"
+    },
+    {
+      "pattern": "CURSED FOREST",
+      "adventure": "Zombie Deer",
+      "trek": "Trek 1"
+    },
+    {
+      "pattern": "FROZEN REALM",
+      "adventure": "Zombie Deer",
+      "trek": "Trek 2"
+    },
+    {
+      "pattern": "EERIE VALLEY",
+      "adventure": "Zombie Deer",
+      "trek": "Trek 3"
+    }
+  ],
+  "familyTextHints": [
+    {
+      "screenFamily": "bonus-report",
+      "regionProperty": "bonusReportHeaderRegion",
+      "requiredPhrases": [
+        "BONUS REPORT"
+      ]
+    },
+    {
+      "screenFamily": "post-trek-menu",
+      "regionProperty": "postTrekMenuHeaderRegion",
+      "requiredPhrases": [
+        "CONTINUE"
+      ]
+    },
+    {
+      "screenFamily": "classic-site-selection-screen",
+      "regionProperty": "siteSelectionLocationRegion",
+      "requiredPhrases": [
+        "SELECT A HUNTING SITE"
+      ]
+    },
+    {
+      "screenFamily": "classic-trek-selection",
+      "regionProperty": "trekSelectionPromptRegion",
+      "requiredPhrases": [
+        "WHERE ARE WE",
+        "SELECT A TREK OR PLAY ALL THREE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "timing": {
+    "preSelectSettleMs": 300,
+    "postSelectWaitMs": 2000
+  },
+  "sites": {
+    "site1": {
+      "xPercent": 0.115,
+      "yPercent": 0.602,
+      "description": "Center-lower click point for Site 1."
+    },
+    "site2": {
+      "xPercent": 0.313,
+      "yPercent": 0.602,
+      "description": "Center-lower click point for Site 2."
+    },
+    "site3": {
+      "xPercent": 0.513,
+      "yPercent": 0.602,
+      "description": "Center-lower click point for Site 3."
+    },
+    "site4": {
+      "xPercent": 0.710,
+      "yPercent": 0.602,
+      "description": "Center-lower click point for Site 4."
+    },
+    "site5": {
+      "xPercent": 0.905,
+      "yPercent": 0.602,
+      "description": "Center-lower click point for Site 5."
+    }
+  }
+}

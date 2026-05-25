@@ -1,0 +1,56 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "postFocusDelayMilliseconds": 500,
+  "steps": [
+    {
+      "type": "focus",
+      "description": "Bring the game to the foreground."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 500,
+      "description": "Let the main menu settle."
+    },
+    {
+      "type": "sendKeys",
+      "keys": "{DOWN}",
+      "description": "Move from Start Game to Trophy Room."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 250,
+      "description": "Brief pause between menu moves."
+    },
+    {
+      "type": "sendKeys",
+      "keys": "{DOWN}",
+      "description": "Move from Trophy Room to Leaderboards."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 250,
+      "description": "Brief pause between menu moves."
+    },
+    {
+      "type": "sendKeys",
+      "keys": "{DOWN}",
+      "description": "Move from Leaderboards to Options."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 500,
+      "description": "Let the selection settle on Options."
+    },
+    {
+      "type": "sendKeys",
+      "keys": "{ENTER}",
+      "description": "Open Options."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 1500,
+      "description": "Give the Options screen time to appear."
+    }
+  ]
+}

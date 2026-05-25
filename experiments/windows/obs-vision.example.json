@@ -1,0 +1,10 @@
+{
+  "obsCmdPath": "E:\\obs-cmd-x64-windows\\obs-cmd.exe",
+  "websocketUrl": "obsws://localhost:4455/REPLACE_ME",
+  "sceneName": "BigBuckHunter",
+  "sourceName": "BigBuckHunterGame",
+  "frameRoot": "output\\frames",
+  "defaultImageFormat": "png",
+  "defaultImageWidth": 1920,
+  "defaultImageHeight": 1080
+}

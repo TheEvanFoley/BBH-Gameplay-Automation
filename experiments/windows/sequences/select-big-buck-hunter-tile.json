@@ -1,0 +1,39 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "postFocusDelayMilliseconds": 500,
+  "steps": [
+    {
+      "type": "focus",
+      "description": "Bring the game to the foreground."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 500,
+      "description": "Let the tile selection screen settle."
+    },
+    {
+      "type": "moveMouse",
+      "xPercent": 0.36,
+      "yPercent": 0.53,
+      "description": "Hover the Big Buck Hunter tile based on screenshot calibration."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 500,
+      "description": "Give the tile time to highlight."
+    },
+    {
+      "type": "click",
+      "button": "Left",
+      "xPercent": 0.36,
+      "yPercent": 0.53,
+      "description": "Left click the highlighted Big Buck Hunter tile."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 2000,
+      "description": "Give the next screen time to appear."
+    }
+  ]
+}

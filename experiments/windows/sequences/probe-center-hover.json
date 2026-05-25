@@ -1,0 +1,27 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "postFocusDelayMilliseconds": 500,
+  "steps": [
+    {
+      "type": "focus",
+      "description": "Bring the game to the foreground."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 500,
+      "description": "Let the selection screen settle."
+    },
+    {
+      "type": "moveMouse",
+      "xPercent": 0.5,
+      "yPercent": 0.55,
+      "description": "Move the cursor to a likely center-choice position without clicking."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 1500,
+      "description": "Give the UI time to react to hover."
+    }
+  ]
+}

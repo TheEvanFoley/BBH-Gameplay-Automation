@@ -1,0 +1,40 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "timing": {
+    "preKeySettleMs": 250,
+    "betweenKeyMs": 250,
+    "preConfirmSettleMs": 350,
+    "postConfirmWaitMs": 1500
+  },
+  "keys": {
+    "Q": { "xPercent": 0.074, "yPercent": 0.399 },
+    "W": { "xPercent": 0.151, "yPercent": 0.399 },
+    "E": { "xPercent": 0.228, "yPercent": 0.399 },
+    "R": { "xPercent": 0.308, "yPercent": 0.399 },
+    "T": { "xPercent": 0.388, "yPercent": 0.399 },
+    "Y": { "xPercent": 0.467, "yPercent": 0.399 },
+    "U": { "xPercent": 0.546, "yPercent": 0.399 },
+    "I": { "xPercent": 0.624, "yPercent": 0.399 },
+    "O": { "xPercent": 0.702, "yPercent": 0.399 },
+    "P": { "xPercent": 0.783, "yPercent": 0.399 },
+    "A": { "xPercent": 0.139, "yPercent": 0.548 },
+    "S": { "xPercent": 0.225, "yPercent": 0.548 },
+    "D": { "xPercent": 0.305, "yPercent": 0.548 },
+    "F": { "xPercent": 0.385, "yPercent": 0.548 },
+    "G": { "xPercent": 0.465, "yPercent": 0.548 },
+    "H": { "xPercent": 0.545, "yPercent": 0.548 },
+    "J": { "xPercent": 0.625, "yPercent": 0.548 },
+    "K": { "xPercent": 0.705, "yPercent": 0.548 },
+    "L": { "xPercent": 0.784, "yPercent": 0.548 },
+    "Z": { "xPercent": 0.181, "yPercent": 0.698 },
+    "X": { "xPercent": 0.261, "yPercent": 0.698 },
+    "C": { "xPercent": 0.340, "yPercent": 0.698 },
+    "V": { "xPercent": 0.421, "yPercent": 0.698 },
+    "B": { "xPercent": 0.503, "yPercent": 0.698 },
+    "N": { "xPercent": 0.582, "yPercent": 0.698 },
+    "M": { "xPercent": 0.663, "yPercent": 0.698 },
+    "BACKSPACE": { "xPercent": 0.906, "yPercent": 0.399 },
+    "CONFIRM": { "xPercent": 0.803, "yPercent": 0.848 }
+  }
+}

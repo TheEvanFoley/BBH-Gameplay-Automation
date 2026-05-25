@@ -1,0 +1,81 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "resetDirection": "far-left",
+  "resetPosition": {
+    "xPercent": 0.03,
+    "yPercent": 0.53
+  },
+  "drivePosition": {
+    "xPercent": 0.97,
+    "yPercent": 0.53
+  },
+  "neutralPosition": {
+    "xPercent": 0.50,
+    "yPercent": 0.53
+  },
+  "timing": {
+    "resetHoldMs": 6000,
+    "fullSweepMs": 5000,
+    "middleStateMs": 2375,
+    "postDriveSettleMs": 300,
+    "preSelectSettleMs": 300,
+    "postSelectWaitMs": 2000
+  },
+  "states": {
+    "left": {
+      "moveMs": 0,
+      "slots": {
+        "slot1Safe": "Whitetail Deer",
+        "slot2": "Bighorn Sheep",
+        "slot3": "Caribou",
+        "slot4Safe": "Elk"
+      }
+    },
+    "middle": {
+      "moveMs": 2375,
+      "slots": {
+        "slot1Safe": "Gemsbock",
+        "slot2": "Irish Elk",
+        "slot3": "Kudu",
+        "slot4Safe": "Moose"
+      }
+    },
+    "right": {
+      "moveMs": 5000,
+      "slots": {
+        "slot1Safe": "Moose",
+        "slot2": "Wildebeast",
+        "slot3": "Buckzilla",
+        "slot4Safe": "Zombie Deer"
+      }
+    }
+  },
+  "slots": {
+    "slot1Safe": {
+      "xPercent": 0.28,
+      "yPercent": 0.60,
+      "description": "Right-third click point for the leftmost visible slot."
+    },
+    "slot2": {
+      "xPercent": 0.42,
+      "yPercent": 0.60,
+      "description": "Center-ish click point for the second visible slot."
+    },
+    "slot3": {
+      "xPercent": 0.60,
+      "yPercent": 0.60,
+      "description": "Center-ish click point for the third visible slot."
+    },
+    "slot4Safe": {
+      "xPercent": 0.74,
+      "yPercent": 0.60,
+      "description": "Left-side click point for the rightmost visible slot."
+    },
+    "back": {
+      "xPercent": 0.18,
+      "yPercent": 0.22,
+      "description": "Stable Back button position."
+    }
+  }
+}

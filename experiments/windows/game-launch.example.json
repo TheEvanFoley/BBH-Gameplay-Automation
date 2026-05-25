@@ -1,0 +1,10 @@
+{
+  "preferredMethod": "steam",
+  "steamAppId": "3102290",
+  "steamExePath": "C:\\Program Files (x86)\\Steam\\steam.exe",
+  "executablePath": "C:\\Path\\To\\Big Buck Hunter\\Game.exe",
+  "workingDirectory": "C:\\Path\\To\\Big Buck Hunter",
+  "launchArguments": [],
+  "postLaunchWaitSeconds": 10,
+  "surfaceNamePattern": "Buck|Hunter|Reloaded|Ultimate Trophy"
+}

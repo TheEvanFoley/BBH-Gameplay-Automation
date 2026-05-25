@@ -1,0 +1,62 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "resetPosition": {
+    "xPercent": 0.03,
+    "yPercent": 0.53
+  },
+  "drivePosition": {
+    "xPercent": 0.97,
+    "yPercent": 0.53
+  },
+  "neutralPosition": {
+    "xPercent": 0.50,
+    "yPercent": 0.53
+  },
+  "timing": {
+    "resetHoldMs": 6000,
+    "fullSweepMs": 5000,
+    "middleProbeMs": 2375,
+    "postDriveSettleMs": 300,
+    "preSelectSettleMs": 300,
+    "postSelectWaitMs": 2000
+  },
+  "states": {
+    "left": {
+      "moveMs": 0,
+      "slots": {
+        "slot1Safe": "Trek 1",
+        "slot2": "Trek 2",
+        "slot3": "Trek 3",
+        "slot4Safe": "Play All 3"
+      }
+    }
+  },
+  "slots": {
+    "slot1Safe": {
+      "xPercent": 0.24,
+      "yPercent": 0.60,
+      "description": "Right-third click point for Trek 1."
+    },
+    "slot2": {
+      "xPercent": 0.40,
+      "yPercent": 0.60,
+      "description": "Center-ish click point for Trek 2."
+    },
+    "slot3": {
+      "xPercent": 0.55,
+      "yPercent": 0.60,
+      "description": "Center-ish click point for Trek 3, kept left of Play All 3."
+    },
+    "slot4Safe": {
+      "xPercent": 0.76,
+      "yPercent": 0.60,
+      "description": "Left-side click point for Play All 3."
+    },
+    "back": {
+      "xPercent": 0.18,
+      "yPercent": 0.22,
+      "description": "Stable Back button position."
+    }
+  }
+}

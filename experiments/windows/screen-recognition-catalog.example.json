@@ -1,0 +1,80 @@
+{
+  "referenceRoot": "output\\frames",
+  "confidenceThreshold": 0.93,
+  "ignoredLabelPatterns": [
+    "recognizer-current",
+    "site-select-test"
+  ],
+  "references": [
+    {
+      "referenceLabel": "landing-page",
+      "screenFamily": "landing-page",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "main-menu",
+      "screenFamily": "main-menu",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "game-mode-selection",
+      "screenFamily": "game-mode-selection",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "big-buck-hunter-mode-selection",
+      "screenFamily": "big-buck-hunter-mode-selection",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "classic-player-count",
+      "screenFamily": "classic-player-count",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "classic-weapon-selection",
+      "screenFamily": "classic-weapon-selection",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "classic-adventure-carousel-left",
+      "screenFamily": "classic-adventure-carousel",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "classic-adventure-carousel-middle",
+      "screenFamily": "classic-adventure-carousel",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "classic-adventure-carousel-right",
+      "screenFamily": "classic-adventure-carousel",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "classic-moose-trek-selection",
+      "screenFamily": "classic-trek-selection",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "tip-screen",
+      "screenFamily": "tip-screen",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "bonus-report-check",
+      "screenFamily": "bonus-report",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "name-selection-screen",
+      "screenFamily": "name-selection-screen",
+      "enabled": true
+    },
+    {
+      "referenceLabel": "classic-site-selection-screen",
+      "screenFamily": "classic-site-selection-screen",
+      "enabled": true
+    }
+  ]
+}

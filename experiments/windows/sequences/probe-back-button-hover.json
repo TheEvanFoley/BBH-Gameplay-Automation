@@ -1,0 +1,27 @@
+{
+  "processNamePattern": "^BBH$",
+  "windowTitlePattern": "BigBuckHunter_UltimateTrophy",
+  "postFocusDelayMilliseconds": 500,
+  "steps": [
+    {
+      "type": "focus",
+      "description": "Bring the game to the foreground."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 500,
+      "description": "Let the tile selection screen settle."
+    },
+    {
+      "type": "moveMouse",
+      "xPercent": 0.18,
+      "yPercent": 0.22,
+      "description": "Hover the estimated Back button target without clicking."
+    },
+    {
+      "type": "wait",
+      "milliseconds": 1500,
+      "description": "Give the UI time to react to hover."
+    }
+  ]
+}
