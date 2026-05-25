@@ -5,3 +5,13 @@ Thumbs.db
 captures/
 recordings/
 *.local.json
+output/frames/**/*-recognizer-current.png
+output/frames/**/*-context-current.png
+output/frames/**/*-router-current.png
+output/frames/**/*-capture-poll.png
+output/frames/**/*-capture-preflight.png
+output/frames/**/*-trek-ready-check.png
+output/frames/**/*-post-trek-transition.png
+output/frames/**/*-site-select-test.png
+output/frames/**/*-caribou-trek-live.png
+output/frames/recognizer-unknown-test.png
