@@ -1,6 +1,6 @@
 # BBH Gameplay Automation
 
-Research and experiments around parity testing, input automation, and score-maximizing gameplay for Big Buck Hunter Reloaded.
+Research and tooling around parity testing, menu automation, and reproducible gameplay capture for Big Buck Hunter Reloaded / Ultimate Trophy on PC.
 
 ## Purpose
 
@@ -24,35 +24,42 @@ This project is intentionally separate from both the qualification tracker and t
 
 ## Current Status
 
-The project is now past pure setup and into practical game interaction.
+This repo is already usable for practical capture work, even though some workflows still need supervision.
 
 What is already working:
 
 - the PC game can be launched reliably from script
-- the game window can be focused and controlled
-- menus can be navigated through a mix of keyboard and mouse automation
-- animal selection is calibrated well enough to reach known animals such as `Elk`
-- trek and site selection are calibrated well enough to enter live gameplay
-- the on-screen name keyboard can be driven programmatically
+- the BBH window can be found, focused, and controlled
+- menus can be navigated through a mix of keyboard and calibrated mouse automation
+- animal, trek, site, and name-entry flows are scriptable
+- OBS-backed fixed-duration site recording is working well for real site footage collection
+- a local GUI can trigger the common launch, route, site-capture, trek-capture, and adventure-capture workflows
+- a screenshot-based screen recognizer can classify known menu families and resolve some adventure / trek context
 
 What this means:
 
-- we can now trigger real site runs from automation
-- multiple `Elk` trek 3 sites were recognized from prior arcade experience, which is a promising parity signal
-- the next major value layer is not more menu work for its own sake, but repeatable video capture and metadata organization
+- we can now capture real site footage without relying on arcade recording
+- multiple `Elk` trek 3 sites were recognized from prior arcade experience, which is a strong early parity signal
+- the repo is now a useful “capture operator tool,” not just a pile of experiments
 
-## Next Phase
+## Current Capture Model
 
-The next phase should treat one recorded `site` as the core unit of data collection.
+The current reliable path is intentionally simple:
 
-Recommended capture workflow:
+1. route to the desired site-selection screen
+2. start OBS recording
+3. click the desired site
+4. move the reticle to a rest position near the bottom-right
+5. record for a fixed duration, currently `35` seconds
+6. stop OBS and file the recording
 
-1. use OBS as the recorder
-2. define one run as one site
-3. create a run folder per capture
-4. attach metadata and notes to the recording after or during capture
+This fixed-duration model is preferred right now over live gameplay-end detection because it has proven much more predictable in practice.
 
-That keeps the dataset useful for later site-version analysis, mirror detection, trophy checks, critter variation review, and bonus-game tagging.
+Recordings are filed under:
+
+- `E:\BigBuckHunterRecordings`
+
+with one run folder per recording plus metadata and notes.
 
 ## First Practical Workflow
 
@@ -85,8 +92,11 @@ That approach keeps the project valuable even if the PC version turns out not to
 - `docs/site-selection-calibration.md`: screenshot-based site coordinates for the 5-site selection screen
 - `docs/screen-recognition-bootstrap.md`: first OBS-backed bridge for capturing frames and preparing future screen recognition
 - `docs/screen-recognition-first-pass.md`: family-based screenshot recognizer for labeled BBH menu frames
+- `docs/current-handoff.md`: best single-file resume point for a fresh thread
 - `docs/capture-workflow.md`: planned OBS-based site capture and organization flow
 - `docs/project-status.md`: current findings, proven automation steps, and where to resume later
+- `docs/gui-runner.md`: current GUI options, limitations, and emergency-stop behavior
+- `docs/site-capture-runner.md`: current one-site fixed-duration capture behavior
 - `docs/data-schema.md`: lightweight metadata shapes for captures and parity findings
 - `experiments/windows/Get-GameSurface.ps1`: inventory running processes and visible windows for launch/focus experiments
 - `experiments/windows/Launch-Game.ps1`: launch helper with optional post-launch process/window inspection
@@ -109,4 +119,8 @@ That approach keeps the project valuable even if the PC version turns out not to
 - `experiments/windows/Get-BBHState.ps1`: capture and resolve the current BBH screen family plus any available context
 - `experiments/windows/Invoke-BBHMenuRouter.ps1`: state-aware polling controller that routes through known menu families to a target site
 - `experiments/windows/menu-router.example.json`: generic menu click targets and router timing defaults
-- `experiments/windows/Invoke-BBHSiteCaptureRun.ps1`: route to site selection, start OBS recording, play one site, and stop when site selection returns
+- `experiments/windows/Invoke-BBHSiteCaptureRun.ps1`: route to site selection, start OBS recording, click one site, and record for a fixed duration
+- `experiments/windows/Invoke-BBHTrekCaptureRun.ps1`: record sites `1-5` for a trek, with timing-based site handoff and post-trek cleanup
+- `experiments/windows/Invoke-BBHAdventureCaptureRun.ps1`: chain three trek recordings for a full adventure pass
+- `experiments/windows/Start-BBHAutomationGui.ps1`: local operator GUI for launch, route, and capture workflows
+- `experiments/windows/Stop-BBHAutomationEmergency.ps1`: external emergency stop for stuck GUI or runaway workflows
