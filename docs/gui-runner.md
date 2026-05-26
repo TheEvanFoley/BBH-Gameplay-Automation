@@ -33,6 +33,7 @@ That means the GUI is not a second implementation of the automation logic. It si
 ## Current Controls
 
 - starting screen
+- run mode
 - weapon
 - adventure
 - trek
@@ -46,9 +47,59 @@ That means the GUI is not a second implementation of the automation logic. It si
 
 ## Starting Screen Notes
 
-Only `Game Closed` changes behavior directly today.
+`Game Closed` changes behavior directly by launching the game first.
 
-If that value is selected, the workflow launches the game first before running the requested action. The other starting-screen values are mainly there to document the current state and keep the GUI aligned with how the project is operated.
+`Site Selection` also changes behavior for `Record Site`.
+
+When `Starting Screen` is `Site Selection` and the action is `Record Site`, the workflow now skips the router and screen-recognition preflight checks. It immediately starts OBS recording and clicks the selected site based on the calibrated site coordinates. This is the fastest path when the operator already has the game on the correct site-selection screen.
+
+`Record Site` repeat is only supported from `Main Menu`.
+
+If `Repeat Count` is greater than `1` and `Starting Screen` is not `Main Menu`, the GUI disables `Record Site`. The workflow also enforces that rule directly if it is called outside the GUI.
+
+The other starting-screen values still mainly document the current state and keep the GUI aligned with how the project is operated.
+
+## Run Mode
+
+The GUI now exposes a `Run Mode` toggle:
+
+- `Safe`: existing routed behavior with screen recognition and preflight checks
+- `Fast`: timing-based blind clicks for a limited, high-throughput path
+
+`Fast` is currently only supported for `Record Site` when `Starting Screen` is `Main Menu`. In other combinations, the GUI forces the mode back to `Safe`.
+
+## Record Site Repeat Behavior
+
+When `Starting Screen` is `Main Menu` and `Repeat Count` is greater than `1`, the workflow repeats the same site capture by:
+
+1. routing from the main menu to the selected site
+2. recording that site normally
+3. waiting the remaining cycle time computed as `Trek Cycle Seconds - Recording Seconds`
+4. clicking the upper-left `MAIN MENU` return target
+5. starting the next routed site capture from the main menu
+
+The upper-left return target is configured as `gameplayMainMenu` in the menu-router config and is currently estimated from the site-selection screen at roughly `xPercent 0.332`, `yPercent 0.104`.
+
+## Record Site Fast Behavior
+
+`Fast` mode currently applies only to `Record Site` from `Main Menu`.
+
+That path uses fixed timing instead of screen recognition:
+
+1. optional high-screen focus click on the first pass only
+2. click `Start Game`
+3. click `Big Buck Hunter`
+4. click `Classic`
+5. click `1 Player`
+6. click the selected weapon
+7. drive the adventure carousel only as far as needed for the selected animal, then click the adventure
+8. click the selected trek directly by slot coordinate
+9. hold left click on the tip screen
+10. click `Confirm` on the name-selection screen
+11. start OBS capture and click the selected site
+12. record for `Recording Seconds`
+
+Between repeated runs, it waits `Trek Cycle Seconds - Recording Seconds`, clicks the `MAIN MENU` return target, waits 3 seconds, and then starts the next fast pass without the initial focus click.
 
 ## Record Full Trek Behavior
 

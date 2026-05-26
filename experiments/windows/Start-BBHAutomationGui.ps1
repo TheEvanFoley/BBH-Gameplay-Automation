@@ -70,13 +70,41 @@ function Set-ActionButtonsEnabled {
 
     $launchButton.Enabled = $Enabled
     $routeButton.Enabled = $Enabled
-    $recordSiteButton.Enabled = $Enabled
     $recordCurrentSetupButton.Enabled = $Enabled
     $recordTrekButton.Enabled = $Enabled
     $recordAdventureButton.Enabled = $Enabled
     $clearLogButton.Enabled = $Enabled
     $openRecordingsButton.Enabled = $true
+    Update-RecordSiteAvailability -BaseEnabled $Enabled
     Set-StopButtonState -Enabled (-not $Enabled)
+}
+
+function Update-RecordSiteAvailability {
+    param(
+        [bool]$BaseEnabled = $true
+    )
+
+    $startingScreen = [string]$startingScreenCombo.SelectedItem
+    $repeatCount = [int]$repeatCountNumeric.Value
+    $isRepeatAllowed = ($repeatCount -le 1) -or ($startingScreen -eq "Main Menu")
+    $isFastAllowed = ($startingScreen -eq "Main Menu")
+
+    $recordSiteButton.Enabled = $BaseEnabled -and $isRepeatAllowed
+    if ($isRepeatAllowed) {
+        $recordSiteAvailabilityLabel.Text = ""
+    }
+    else {
+        $recordSiteAvailabilityLabel.Text = "Record Site repeat requires Starting Screen = Main Menu."
+    }
+
+    $runModeCombo.Enabled = $BaseEnabled -and $isFastAllowed
+    if ($isFastAllowed) {
+        $runModeAvailabilityLabel.Text = ""
+    }
+    else {
+        $runModeCombo.SelectedItem = "Safe"
+        $runModeAvailabilityLabel.Text = "Fast mode is only available for Record Site from Main Menu."
+    }
 }
 
 function Get-SelectedConfig {
@@ -88,6 +116,7 @@ function Get-SelectedConfig {
         Site = [int]$siteCombo.SelectedItem
         PlayerName = [string]$playerNameTextBox.Text
         Notes = [string]$notesTextBox.Text
+        RunMode = [string]$runModeCombo.SelectedItem
         MaxRecordingSeconds = [int]$recordSecondsNumeric.Value
         SiteCycleSeconds = [int]$siteCycleNumeric.Value
         RepeatCount = [int]$repeatCountNumeric.Value
@@ -139,6 +168,7 @@ function Start-WorkflowProcess {
         "-Trek"; $selection.Trek
         "-Site"; [string]$selection.Site
         "-PlayerName"; $selection.PlayerName
+        "-RunMode"; $selection.RunMode
         "-MaxRecordingSeconds"; [string]$selection.MaxRecordingSeconds
         "-SiteCycleSeconds"; [string]$selection.SiteCycleSeconds
         "-RepeatCount"; [string]$selection.RepeatCount
@@ -337,10 +367,13 @@ $repeatCountNumeric.Maximum = 25
 $repeatCountNumeric.Value = 1
 $settingsGroup.Controls.Add($repeatCountNumeric)
 
+New-FieldLabel -Text "Run Mode" -X 640 -Y 100 | Out-Null
+$runModeCombo = New-ComboBox -Items @("Safe", "Fast") -X 640 -Y 122 -Width 120 -DefaultItem "Safe"
+
 $dryRunCheckBox = [System.Windows.Forms.CheckBox]::new()
 $dryRunCheckBox.Text = "Dry run"
 $dryRunCheckBox.AutoSize = $true
-$dryRunCheckBox.Location = [System.Drawing.Point]::new(640, 124)
+$dryRunCheckBox.Location = [System.Drawing.Point]::new(780, 124)
 $settingsGroup.Controls.Add($dryRunCheckBox)
 
 $startingScreenHint = [System.Windows.Forms.Label]::new()
@@ -350,9 +383,15 @@ $startingScreenHint.MaximumSize = [System.Drawing.Size]::new(860, 0)
 $startingScreenHint.Location = [System.Drawing.Point]::new(20, 160)
 $settingsGroup.Controls.Add($startingScreenHint)
 
-New-FieldLabel -Text "Notes" -X 20 -Y 192 | Out-Null
+$runModeAvailabilityLabel = [System.Windows.Forms.Label]::new()
+$runModeAvailabilityLabel.AutoSize = $true
+$runModeAvailabilityLabel.MaximumSize = [System.Drawing.Size]::new(860, 0)
+$runModeAvailabilityLabel.Location = [System.Drawing.Point]::new(20, 180)
+$settingsGroup.Controls.Add($runModeAvailabilityLabel)
+
+New-FieldLabel -Text "Notes" -X 20 -Y 208 | Out-Null
 $notesTextBox = [System.Windows.Forms.TextBox]::new()
-$notesTextBox.Location = [System.Drawing.Point]::new(20, 214)
+$notesTextBox.Location = [System.Drawing.Point]::new(20, 230)
 $notesTextBox.Size = [System.Drawing.Size]::new(860, 24)
 $settingsGroup.Controls.Add($notesTextBox)
 
@@ -416,6 +455,12 @@ $clearLogButton.Text = "Clear Log"
 $clearLogButton.Location = [System.Drawing.Point]::new(20, 78)
 $clearLogButton.Size = [System.Drawing.Size]::new(120, 36)
 $actionsGroup.Controls.Add($clearLogButton)
+
+$recordSiteAvailabilityLabel = [System.Windows.Forms.Label]::new()
+$recordSiteAvailabilityLabel.AutoSize = $true
+$recordSiteAvailabilityLabel.ForeColor = [System.Drawing.Color]::FromArgb(160, 60, 0)
+$recordSiteAvailabilityLabel.Location = [System.Drawing.Point]::new(500, 88)
+$actionsGroup.Controls.Add($recordSiteAvailabilityLabel)
 
 $logGroup = [System.Windows.Forms.GroupBox]::new()
 $logGroup.Text = "Run Log"
@@ -486,6 +531,9 @@ $form.Add_KeyDown({
     }
 })
 $clearLogButton.Add_Click({ $logTextBox.Clear() })
+$startingScreenCombo.Add_SelectedIndexChanged({ Update-RecordSiteAvailability })
+$repeatCountNumeric.Add_ValueChanged({ Update-RecordSiteAvailability })
+$runModeCombo.Add_SelectedIndexChanged({ Update-RecordSiteAvailability })
 $openRecordingsButton.Add_Click({
     $captureConfigPath = Join-Path $PSScriptRoot "obs-capture.local.json"
     $captureConfig = Get-Content -LiteralPath $captureConfigPath -Raw | ConvertFrom-Json
@@ -513,4 +561,5 @@ $form.Add_FormClosing({
 Add-LogLine -Text "GUI ready."
 Add-LogLine -Text "Use 'Launch Game' when BBH is closed, or go straight to route/record actions when the game is already running."
 Add-LogLine -Text "Press Esc during an active workflow as an emergency stop shortcut."
+Update-RecordSiteAvailability
 [void]$form.ShowDialog()

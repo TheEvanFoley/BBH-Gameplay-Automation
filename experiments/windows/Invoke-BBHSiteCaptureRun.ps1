@@ -13,6 +13,7 @@ param(
     [int]$MaxRecordingSeconds = 35,
     [string]$RouterConfigPath = ".\experiments\windows\menu-router.local.json",
     [string]$CaptureConfigPath = ".\experiments\windows\obs-capture.local.json",
+    [switch]$SkipRoutingAndPreflight,
     [switch]$DryRun
 )
 
@@ -82,48 +83,54 @@ Write-Host "Site: $targetSiteName"
 Write-Host "Game mode: $GameMode"
 Write-Host "Weapon: $Weapon"
 Write-Host "Recording length target: $MaxRecordingSeconds seconds"
+Write-Host "Skip routing and preflight: $SkipRoutingAndPreflight"
 Write-Host "Dry run: $DryRun"
 
-Write-Host "Routing to the target site-selection screen"
-$routerJson = & $routerScriptPath `
-    -Adventure $Adventure `
-    -Trek $Trek `
-    -Site $Site `
-    -PlayerName $PlayerName `
-    -MaxSteps $RouteMaxSteps `
-    -ConfigPath $RouterConfigPath `
-    -StopAtSiteSelection `
-    -DryRun:$DryRun
-
-if ($routerJson) {
-    Write-Host "Router result:"
-    Write-Host $routerJson
+if ($SkipRoutingAndPreflight) {
+    Write-Host "Skipping router and site-selection preflight. Starting capture immediately from the current site-selection screen."
 }
+else {
+    Write-Host "Routing to the target site-selection screen"
+    $routerJson = & $routerScriptPath `
+        -Adventure $Adventure `
+        -Trek $Trek `
+        -Site $Site `
+        -PlayerName $PlayerName `
+        -MaxSteps $RouteMaxSteps `
+        -ConfigPath $RouterConfigPath `
+        -StopAtSiteSelection `
+        -DryRun:$DryRun
 
-Write-Host "Verifying that the live screen is the target site-selection state"
-$preflightStateJson = & $stateScriptPath -CaptureCurrent -CaptureLabel "capture-preflight"
-$preflightState = $preflightStateJson | ConvertFrom-Json
+    if ($routerJson) {
+        Write-Host "Router result:"
+        Write-Host $routerJson
+    }
 
-Write-Host ("Preflight: family={0} adventure={1} trek={2}" -f $preflightState.screenFamily, $preflightState.adventure, $preflightState.trek)
+    Write-Host "Verifying that the live screen is the target site-selection state"
+    $preflightStateJson = & $stateScriptPath -CaptureCurrent -CaptureLabel "capture-preflight"
+    $preflightState = $preflightStateJson | ConvertFrom-Json
 
-$familyMatches = ([string]$preflightState.screenFamily -eq "classic-site-selection-screen")
-$adventureText = [string]$preflightState.adventure
-$trekText = [string]$preflightState.trek
-$adventureMatches = (-not $adventureText) -or ($adventureText -eq $Adventure)
-$trekMatches = (-not $trekText) -or ($trekText -eq $Trek)
-$isConfirmedSiteSelection = $familyMatches -and $adventureMatches -and $trekMatches
+    Write-Host ("Preflight: family={0} adventure={1} trek={2}" -f $preflightState.screenFamily, $preflightState.adventure, $preflightState.trek)
 
-if (-not $isConfirmedSiteSelection) {
-    throw ("Capture preflight failed. Expected classic-site-selection-screen for adventure '{0}' and trek '{1}', but got family='{2}', adventure='{3}', trek='{4}'." -f `
-        $Adventure, `
-        $Trek, `
-        [string]$preflightState.screenFamily, `
-        [string]$preflightState.adventure, `
-        [string]$preflightState.trek)
-}
+    $familyMatches = ([string]$preflightState.screenFamily -eq "classic-site-selection-screen")
+    $adventureText = [string]$preflightState.adventure
+    $trekText = [string]$preflightState.trek
+    $adventureMatches = (-not $adventureText) -or ($adventureText -eq $Adventure)
+    $trekMatches = (-not $trekText) -or ($trekText -eq $Trek)
+    $isConfirmedSiteSelection = $familyMatches -and $adventureMatches -and $trekMatches
 
-if ($familyMatches -and (-not $adventureText -or -not $trekText)) {
-    Write-Warning "Preflight reached the site-selection family, but adventure/trek OCR was incomplete. Continuing in fixed-duration mode."
+    if (-not $isConfirmedSiteSelection) {
+        throw ("Capture preflight failed. Expected classic-site-selection-screen for adventure '{0}' and trek '{1}', but got family='{2}', adventure='{3}', trek='{4}'." -f `
+            $Adventure, `
+            $Trek, `
+            [string]$preflightState.screenFamily, `
+            [string]$preflightState.adventure, `
+            [string]$preflightState.trek)
+    }
+
+    if ($familyMatches -and (-not $adventureText -or -not $trekText)) {
+        Write-Warning "Preflight reached the site-selection family, but adventure/trek OCR was incomplete. Continuing in fixed-duration mode."
+    }
 }
 
 Write-Host "Starting OBS site capture"

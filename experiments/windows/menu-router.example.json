@@ -13,6 +13,10 @@
       "xPercent": 0.50,
       "yPercent": 0.56
     },
+    "focusSafeZone": {
+      "xPercent": 0.50,
+      "yPercent": 0.10
+    },
     "genericLeftChoice": {
       "xPercent": 0.36,
       "yPercent": 0.53
@@ -24,6 +28,10 @@
     "centerContinue": {
       "xPercent": 0.50,
       "yPercent": 0.50
+    },
+    "gameplayMainMenu": {
+      "xPercent": 0.332,
+      "yPercent": 0.104
     },
     "postTrekNext": {
       "xPercent": 0.39,
